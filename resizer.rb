@@ -23,7 +23,7 @@ require 'ostruct'
 class ResizeError < StandardError; end
 class NotResizeTool < StandardError; end
 
-# The handlers used for modification of images
+# The handlers used for modification of image
 # files. We can add extra, or custom libraries.
 #
 # Ideally these handlers would be written independent of the Resize
