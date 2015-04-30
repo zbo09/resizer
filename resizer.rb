@@ -81,8 +81,8 @@ module Resize
   #
   # -- To use via command line
   #
-  # ruby resize.rb -p <path>
-  # ruby resize.rb --path <path>
+  #   ruby resize.rb -p <path>
+  #   ruby resize.rb --path <path>
   #
   class ImageMagick
     # stores the extensions
