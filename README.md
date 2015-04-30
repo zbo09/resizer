@@ -13,7 +13,7 @@ sizer.find_and_resize!(<path to images>)
 ````
   Or to use it via command line:
 
-      ruby resize.rb [-p <path to images>] [--path <path to images>]
+`ruby resize.rb [-p <path to images>] [--path <path to images>]`
 
 # Help information:
 
