@@ -178,7 +178,7 @@ module Resize
   end
 end
 
-#-- Command line
+# -- Command line
 #
 # Only run the following code when this file is the main file being run
 # instead of having been required or loaded by another file
