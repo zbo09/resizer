@@ -23,12 +23,20 @@ require 'ostruct'
 class ResizeError < StandardError; end
 class NotResizeTool < StandardError; end
 
-# The tools used for modification of images
+# The handlers used for modification of images
 # files. We can add extra, or custom libraries.
 #
-# Ideally these tools would be written independent of the Resize
+# Ideally these handlers would be written independent of the Resize
 # module and using include, included into the Resize module
 # adding additional handlers to existing Resize module.
+#
+# We could create a directory containing the new handlers and using
+# Ruby's meta-programming features iterate over each file inside the
+# directory and include them automatically
+#
+# We would need to implement an interface for each of the handlers
+# so there is always only one method to be called and that method
+# must be implemented in any new handlers added to the directory.
 TOOLS = [
   'ImageMagick',
   'SomeOtherTool' # You get the idea?
