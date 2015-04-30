@@ -8,7 +8,7 @@ require 'ostruct'
 # images inside a directory. Just require 'resizer.rb' and
 # provide the path as an argument when used within an application.
 #
-# ==== Example if using inside ruby application
+# ==== Example if using inside a ruby application
 #
 #   resizer = Resize::ImageMagick.new
 #   resizer.find_and_resize!(<path-to-image-directory>)
@@ -25,6 +25,10 @@ class NotResizeTool < StandardError; end
 
 # The tools used for modification of images
 # files. We can add extra, or custom libraries.
+#
+# Ideally these tools would be written independent of the Resize
+# module and using include, included into the Resize module
+# adding additional handlers to existing Resize module.
 TOOLS = [
   'ImageMagick',
   'SomeOtherTool' # You get the idea?
@@ -32,6 +36,8 @@ TOOLS = [
 
 # Re-factoring can be accomplished by creating an array
 # of directories which can never be accessed
+#
+# A white & black list
 ALLOWED_DIRS = [
   # Add allowed directories
 ]
@@ -164,6 +170,8 @@ module Resize
   end
 end
 
+#-- Command line
+#
 # Only run the following code when this file is the main file being run
 # instead of having been required or loaded by another file
 if __FILE__ == $0
