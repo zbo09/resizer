@@ -252,7 +252,7 @@ ENDHELP
     #
     # We need to make sure that the parameter they are passing in
     # is not a system command and is actually a directory as we are
-    # using eval to execute the string command
+    # using eval to execute a string as Ruby code
     #
     # We can add a check to make sure a white-list of commands are
     # only allowed and apply the check
