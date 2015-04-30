@@ -192,14 +192,15 @@ ENDHELP
       opt.on('--path <path to images>') { |o| options.path = o }
     end.parse!
   rescue OptionParser::MissingArgument => e
-    puts e.message
-    exit! true
+    # skip and let the options check take care of letting the
+    # user know what to do next
   rescue OptionParser::InvalidOption => e
     puts e.message
     exit! true
   end
 
-  if options.help or options.path.nil?
+  # Options check
+  if options.help or options.path.nil? or (!options.path.nil? and options.path.empty?)
     puts USAGE
     puts
     puts HELP if options.help
