@@ -8,7 +8,7 @@ Resizes images using ImageMagick 6.9
 ```ruby
 require 'resizer.rb'
 
-sizer = Resize::<Tool>.new
+sizer = Resize::ImageMagick.new
 sizer.find_and_resize!(<path to images>)
 ````
   Or to use it via command line:
