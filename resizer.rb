@@ -22,6 +22,7 @@ require 'ostruct'
 
 class ResizeError < StandardError; end
 class NotResizeTool < StandardError; end
+class NoPathSpecified < StandardError; end
 
 # The handlers used for modification of image
 # files. We can add extra, or custom libraries.
@@ -231,8 +232,19 @@ ENDHELP
     exit! true
   end
 
+  # Check if the --path option is specified
+  # if not raise NoPathSpecified error
+  begin
+    if !options.help and options.path.nil?
+      raise NoPathSpecified, "You must specify --path"
+    end
+  rescue NoPathSpecified => e
+    puts e.message
+    exit! true
+  end
+
   # Options check
-  if options.help or options.path.nil? or (!options.path.nil? and options.path)
+  if options.help
     puts USAGE
     puts
     puts HELP if options.help
