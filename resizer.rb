@@ -94,7 +94,7 @@ module Resize
     # We can re-factor this to use a Format class
     # and include the formats into the Resize module.
     #
-    # Each format class will follow and interface
+    # Each format class will follow an interface
     VALID_FORMATS = [
       'jpg',
       'jpeg',
