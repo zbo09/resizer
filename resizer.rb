@@ -110,9 +110,9 @@ module Resize
     # One public method for each handler
     #
     # Takes `path` as a single parameter and will send
-    # check_images(path) to the ImageMagick class
+    # check_and_resize_images(path) to the ImageMagick class
     def find_and_resize!(path)
-      check_images(path)
+      check_and_resize_images(path)
     end
 
   private
@@ -121,7 +121,7 @@ module Resize
       begin
         # this will only iterate over the extensions we have
         # stored in extensions, and only resize the files with valid extensions
-        # which have been checked by check_images()
+        # which have been checked by check_and_resize_images()
         extensions.each do |ext|
           begin
             output, err, status = Open3.capture3("mogrify -resize 50% -format 'resized.#{ext[:name]}' #{path}/*.#{ext[:name]}")
@@ -147,7 +147,7 @@ module Resize
 
     # Checks the images in specified directory.
     # Will only validate the image formats specified in VALID_FORMATS
-    def check_images(path)
+    def check_and_resize_images(path)
       # We don't want to modify the path so create
       # a temporary glob path and retain the original
       #
