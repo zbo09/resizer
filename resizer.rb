@@ -111,6 +111,10 @@ module Resize
     #
     # Takes `path` as a single parameter and will send
     # check_and_resize_images(path) to the ImageMagick class
+    #
+    # Wrapper method - just to be clear - allows us to easily modify the
+    # check_and_resize_images(path) without having to change any part of
+    # a program calling `find_and_resize!(path)`
     def find_and_resize!(path)
       check_and_resize_images(path)
     end
