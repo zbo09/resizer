@@ -15,7 +15,7 @@ sizer.find_and_resize!(<path to images>)
 
 `ruby resize.rb [-p <path to images>] [--path <path to images>]`
 
-# Help information:
+# Help information
 
       -h, --help       Show help.
       -p, --path       Specify the path to the directory containing the images
